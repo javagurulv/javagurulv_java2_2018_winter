@@ -14,15 +14,51 @@ Business rules:
 9.
 
 Next steps:
-0. Single Responsibility Principle
-1. Implement each menu step in separate class
-2. Introduce Command design pattern
+1. Single Responsibility Principle
+2. Implement each menu step in separate class
 3. Introduce Strategy design pattern
 4. Introduce three layer application architecture:
    UI, Business Logic, Data Access Layer
 
-5. Database, SQL, JDBC API, DAL implementation
-6. IoC, Business Logic implementation
-7. HTML, CSS, simple Spring MVC introduction, UI implementation
-8. ORM, Hibernate, JPA
-9.
+Lesson 3:
+5. Rename commands to views - they represent UI layer.
+6. Introduce data validation on business logic side.
+   Business Rule: when you add product to the list,
+   product title is required, must not be null or empty.
+   Product description can be omitted.
+7. Introduce Request/Response to business logic.
+   When business logic can return different results,
+   for example request processed, or bunch of errors, then
+   Request/Response object is a good practice to encapsulate
+   requests and responses to business logic.
+8. Treat business logic component like a service (separate autonomous
+   part of the system who will implement user use case).
+   Send request to service, service process request (check all
+   business rules, do technical stuff like store data to db, etc.)
+   and send back response with call results.
+9. Database, SQL, JDBC API, DAL implementation
+
+Lesson 4:
+11.Implement Business Rule: User can create different shopping lists.
+   Each shopping list must have unique title.
+12.Think about domain model design. Introduce ShoppingList entity.
+   Discuss shopping list and product relations and how to implement them.
+13.Implement CRUD operations for Shopping List entity.
+
+Lesson 5:
+IoC, Business Logic implementation
+
+Lesson 6:
+Introduction to ORM, Hibernate, JPA
+
+Lesson 7:
+ORM, Hibernate, JPA relations
+
+Lesson 8:
+HTML, CSS, simple Spring MVC introduction, UI implementation
+
+Lesson 9:
+HTML, CSS, simple Spring MVC introduction, UI implementation
+
+
+Lesson 10:

@@ -1,7 +1,7 @@
 package lv.javaguru.java2.views;
 
 import lv.javaguru.java2.database.ProductDatabase;
-import lv.javaguru.java2.businesslogic.RemoveProductService;
+import lv.javaguru.java2.businesslogic.removeproduct.RemoveProductService;
 
 import java.util.Scanner;
 

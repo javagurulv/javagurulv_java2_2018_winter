@@ -36,7 +36,10 @@ Lesson 3:
    Send request to service, service process request (check all
    business rules, do technical stuff like store data to db, etc.)
    and send back response with call results.
-9. Database, SQL, JDBC API, DAL implementation
+9. JUnit tests
+
+Lesson 4
+10. Database, SQL, JDBC API, DAL implementation
 
 Lesson 4:
 11.Implement Business Rule: User can create different shopping lists.

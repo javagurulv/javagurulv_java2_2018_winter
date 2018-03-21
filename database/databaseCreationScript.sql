@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `title` CHAR(32) NOT NULL,
   `description` CHAR(100) NOT NULL,
+  `created_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 )
 ENGINE = InnoDB

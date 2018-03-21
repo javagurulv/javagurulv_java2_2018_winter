@@ -1,17 +1,15 @@
 package lv.javaguru.java2.views;
 
-import lv.javaguru.java2.database.ProductDatabase;
 import lv.javaguru.java2.businesslogic.removeproduct.RemoveProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+@Component
 public class RemoveProductView implements View {
 
-    private RemoveProductService removeProductService;
-
-    public RemoveProductView(ProductDatabase database) {
-        this.removeProductService = new RemoveProductService(database);
-    }
+    @Autowired private RemoveProductService removeProductService;
 
     @Override
     public void execute() {

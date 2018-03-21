@@ -1,11 +1,13 @@
 package lv.javaguru.java2.businesslogic.addproduct;
 
-import lv.javaguru.java2.Product;
 import lv.javaguru.java2.businesslogic.Error;
 import lv.javaguru.java2.database.ProductDatabase;
+import lv.javaguru.java2.domain.Product;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class AddProductService {
 
     private ProductDatabase productDatabase;

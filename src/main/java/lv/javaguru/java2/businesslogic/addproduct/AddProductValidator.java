@@ -1,13 +1,15 @@
 package lv.javaguru.java2.businesslogic.addproduct;
 
-import lv.javaguru.java2.Product;
+import lv.javaguru.java2.domain.Product;
 import lv.javaguru.java2.businesslogic.Error;
 import lv.javaguru.java2.database.ProductDatabase;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Component
 public class AddProductValidator {
 
     private ProductDatabase productDatabase;

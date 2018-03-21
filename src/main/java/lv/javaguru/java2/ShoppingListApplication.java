@@ -1,12 +1,13 @@
 package lv.javaguru.java2;
 
-import lv.javaguru.java2.database.ProductDatabase;
-import lv.javaguru.java2.database.ProductInMemoryDatabase;
+import lv.javaguru.java2.configs.SpringAppConfig;
 import lv.javaguru.java2.views.AddProductView;
 import lv.javaguru.java2.views.ProgramExitView;
 import lv.javaguru.java2.views.RemoveProductView;
 import lv.javaguru.java2.views.ShowProductListView;
 import lv.javaguru.java2.views.View;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,18 +22,14 @@ public class ShoppingListApplication {
         // 3. Print shopping list to console
         // 4. Exit
 
-        ProductDatabase database = new ProductInMemoryDatabase();
-
-        View addProductView = new AddProductView(database);
-        View removeProductView = new RemoveProductView(database);
-        View showProductView = new ShowProductListView(database);
-        View programExitView = new ProgramExitView();
+        ApplicationContext applicationContext
+                = new AnnotationConfigApplicationContext(SpringAppConfig.class);
 
         Map<Integer, View> actionMap = new HashMap<>();
-        actionMap.put(1, addProductView);
-        actionMap.put(2, removeProductView);
-        actionMap.put(3, showProductView);
-        actionMap.put(4, programExitView);
+        actionMap.put(1, applicationContext.getBean(AddProductView.class));
+        actionMap.put(2, applicationContext.getBean(RemoveProductView.class));
+        actionMap.put(3, applicationContext.getBean(ShowProductListView.class));
+        actionMap.put(4, applicationContext.getBean(ProgramExitView.class));
 
         while (true) {
             printProgramMenu();

@@ -1,4 +1,4 @@
-package lv.javaguru.java2;
+package lv.javaguru.java2.domain;
 
 public class Product {
 

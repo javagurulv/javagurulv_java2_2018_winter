@@ -1,20 +1,16 @@
 package lv.javaguru.java2.views;
 
 import lv.javaguru.java2.businesslogic.addproduct.AddProductResponse;
-import lv.javaguru.java2.businesslogic.addproduct.AddProductValidator;
-import lv.javaguru.java2.database.ProductDatabase;
 import lv.javaguru.java2.businesslogic.addproduct.AddProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+@Component
 public class AddProductView implements View {
 
-    private AddProductService addProductService;
-
-    public AddProductView(ProductDatabase database) {
-        AddProductValidator validator = new AddProductValidator(database);
-        this.addProductService = new AddProductService(database, validator);
-    }
+    @Autowired private AddProductService addProductService;
 
     @Override
     public void execute() {

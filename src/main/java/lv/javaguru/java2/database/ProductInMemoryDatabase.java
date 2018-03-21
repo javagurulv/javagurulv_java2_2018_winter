@@ -1,6 +1,6 @@
 package lv.javaguru.java2.database;
 
-import lv.javaguru.java2.Product;
+import lv.javaguru.java2.domain.Product;
 
 import java.util.ArrayList;
 import java.util.List;

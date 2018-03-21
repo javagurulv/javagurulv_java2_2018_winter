@@ -1,15 +1,14 @@
 package lv.javaguru.java2.views;
 
-import lv.javaguru.java2.Product;
+import lv.javaguru.java2.domain.Product;
 import lv.javaguru.java2.database.ProductDatabase;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ShowProductListView implements View {
 
-    private ProductDatabase database;
-
-    public ShowProductListView(ProductDatabase database) {
-        this.database = database;
-    }
+    @Autowired private ProductDatabase database;
 
     @Override
     public void execute() {

@@ -3,6 +3,7 @@ package lv.javaguru.java2.businesslogic.addproduct;
 import lv.javaguru.java2.businesslogic.Error;
 import lv.javaguru.java2.database.ProductDatabase;
 import lv.javaguru.java2.domain.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -10,14 +11,8 @@ import java.util.List;
 @Component
 public class AddProductService {
 
-    private ProductDatabase productDatabase;
-    private AddProductValidator addProductValidator;
-
-    public AddProductService(ProductDatabase productDatabase,
-                             AddProductValidator addProductValidator) {
-        this.productDatabase = productDatabase;
-        this.addProductValidator = addProductValidator;
-    }
+    @Autowired private ProductDatabase productDatabase;
+    @Autowired private AddProductValidator addProductValidator;
 
     public AddProductResponse addProduct(String title,
                                          String description) {

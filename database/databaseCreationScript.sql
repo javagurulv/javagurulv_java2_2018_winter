@@ -8,9 +8,9 @@ USE `java2` ;
 DROP TABLE IF EXISTS `products` ;
 
 CREATE TABLE IF NOT EXISTS `products` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `title` CHAR(32) NOT NULL,
-  `description` CHAR(100) NOT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(32) NOT NULL,
+  `description` VARCHAR(100) NOT NULL,
   `created_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 )

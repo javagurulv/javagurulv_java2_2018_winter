@@ -4,27 +4,26 @@ import lv.javaguru.java2.businesslogic.addproduct.AddProductResponse;
 import lv.javaguru.java2.businesslogic.addproduct.AddProductService;
 import lv.javaguru.java2.businesslogic.addproduct.AddProductValidator;
 import lv.javaguru.java2.database.ProductDatabase;
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+@RunWith(MockitoJUnitRunner.class)
 public class AddProductServiceTest {
 
-    private ProductDatabase database;
-    private AddProductValidator validator;
-    private AddProductService service;
+    @Mock private ProductDatabase database;
+    @Mock private AddProductValidator validator;
 
-    @Before
-    public void init() {
-        database = Mockito.mock(ProductDatabase.class);
-        validator = Mockito.mock(AddProductValidator.class);
-        service = new AddProductService(database, validator);
-    }
+    @InjectMocks
+    private AddProductService service = new AddProductService();
 
     @Test
     public void shouldReturnSuccess() {

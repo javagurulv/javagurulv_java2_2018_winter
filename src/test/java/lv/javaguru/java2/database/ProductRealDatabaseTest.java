@@ -2,24 +2,23 @@ package lv.javaguru.java2.database;
 
 import lv.javaguru.java2.configs.SpringAppConfig;
 import lv.javaguru.java2.domain.Product;
-import org.junit.Before;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javax.transaction.Transactional;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = { SpringAppConfig.class })
+@Transactional
 public class ProductRealDatabaseTest {
 
-    private ProductDatabase database;
-
-    @Before
-    public void init() {
-        ApplicationContext applicationContext
-                = new AnnotationConfigApplicationContext(SpringAppConfig.class);
-        database = applicationContext.getBean(ProductDatabase.class);
-    }
+    @Autowired private ProductDatabase database;
 
     @Test
     public void shouldAddProductToDatabase() {

@@ -12,6 +12,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -19,6 +20,7 @@ import java.util.Properties;
 @Configuration
 @ComponentScan(basePackages = {"lv.javaguru.java2"})
 @PropertySource("classpath:database.properties")
+@EnableTransactionManagement
 public class SpringAppConfig {
 
     @Bean

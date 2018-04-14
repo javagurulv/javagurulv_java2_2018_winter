@@ -26,7 +26,7 @@ public class AddProductService {
         Product product = new Product();
         product.setTitle(title);
         product.setDescription(description);
-        productDatabase.add(product);
+        productDatabase.save(product);
 
         return new AddProductResponse(true, null);
     }

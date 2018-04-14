@@ -13,7 +13,7 @@ class ProductRepositoryImpl extends ORMRepository
                             implements ProductRepository {
 
     @Override
-    public void add(Product product) {
+    public void save(Product product) {
         session().save(product);
     }
 

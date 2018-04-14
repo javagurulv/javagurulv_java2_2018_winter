@@ -28,7 +28,7 @@ public class ProductRealDatabaseTest {
 
         assertNull(product.getId());
 
-        database.add(product);
+        database.save(product);
 
         assertNotNull(product.getId());
     }

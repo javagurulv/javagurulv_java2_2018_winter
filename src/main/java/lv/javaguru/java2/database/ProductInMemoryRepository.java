@@ -11,7 +11,7 @@ public class ProductInMemoryRepository implements ProductRepository {
     private List<Product> products = new ArrayList<>();
 
     @Override
-    public void add(Product product) {
+    public void save(Product product) {
         products.add(product);
     }
 

@@ -15,7 +15,7 @@ public class ProductRepositoryImpl extends JDBCRepository
                                    implements ProductRepository {
 
     @Override
-    public void add(Product product) {
+    public void save(Product product) {
         Connection connection = null;
         try {
             connection = getConnection();

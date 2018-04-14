@@ -1,6 +1,7 @@
-package lv.javaguru.java2.database;
+package lv.javaguru.java2.database.orm;
 
 import lv.javaguru.java2.configs.SpringAppConfig;
+import lv.javaguru.java2.database.ProductRepository;
 import lv.javaguru.java2.domain.Product;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +17,7 @@ import static org.junit.Assert.assertNull;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { SpringAppConfig.class })
 @Transactional
-public class ProductRealDatabaseTest {
+public class ProductRepositoryImplTest {
 
     @Autowired private ProductRepository database;
 

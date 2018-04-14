@@ -1,7 +1,7 @@
 package lv.javaguru.java2.businesslogic;
 
 import lv.javaguru.java2.businesslogic.addproduct.AddProductValidator;
-import lv.javaguru.java2.database.ProductDatabase;
+import lv.javaguru.java2.database.ProductRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -12,12 +12,12 @@ import static org.junit.Assert.assertEquals;
 
 public class AddProductValidatorTest {
 
-    private ProductDatabase database;
+    private ProductRepository database;
     private AddProductValidator validator;
 
     @Before
     public void init() {
-        database = Mockito.mock(ProductDatabase.class);
+        database = Mockito.mock(ProductRepository.class);
         validator = new AddProductValidator(database);
     }
 

@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface UserRepository {
 
-    List<ShoppingList> getShoppingLists(User user);
+    void save(User user);
+
+    List<ShoppingList> findShoppingLists(User user);
 
 }

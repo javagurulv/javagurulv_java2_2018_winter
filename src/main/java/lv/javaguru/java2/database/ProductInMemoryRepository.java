@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ProductInMemoryDatabase implements ProductDatabase {
+public class ProductInMemoryRepository implements ProductRepository {
 
     private List<Product> products = new ArrayList<>();
 

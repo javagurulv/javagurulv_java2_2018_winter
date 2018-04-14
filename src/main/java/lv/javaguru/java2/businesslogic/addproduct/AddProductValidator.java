@@ -2,7 +2,7 @@ package lv.javaguru.java2.businesslogic.addproduct;
 
 import lv.javaguru.java2.domain.Product;
 import lv.javaguru.java2.businesslogic.Error;
-import lv.javaguru.java2.database.ProductDatabase;
+import lv.javaguru.java2.database.ProductRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -12,9 +12,9 @@ import java.util.Optional;
 @Component
 public class AddProductValidator {
 
-    private ProductDatabase productDatabase;
+    private ProductRepository productDatabase;
 
-    public AddProductValidator(ProductDatabase productDatabase) {
+    public AddProductValidator(ProductRepository productDatabase) {
         this.productDatabase = productDatabase;
     }
 

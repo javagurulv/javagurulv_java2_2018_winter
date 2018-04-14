@@ -3,7 +3,7 @@ package lv.javaguru.java2.businesslogic;
 import lv.javaguru.java2.businesslogic.addproduct.AddProductResponse;
 import lv.javaguru.java2.businesslogic.addproduct.AddProductService;
 import lv.javaguru.java2.businesslogic.addproduct.AddProductValidator;
-import lv.javaguru.java2.database.ProductDatabase;
+import lv.javaguru.java2.database.ProductRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(MockitoJUnitRunner.class)
 public class AddProductServiceTest {
 
-    @Mock private ProductDatabase database;
+    @Mock private ProductRepository database;
     @Mock private AddProductValidator validator;
 
     @InjectMocks

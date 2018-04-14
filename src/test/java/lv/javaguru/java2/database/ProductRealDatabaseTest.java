@@ -18,7 +18,7 @@ import static org.junit.Assert.assertNull;
 @Transactional
 public class ProductRealDatabaseTest {
 
-    @Autowired private ProductDatabase database;
+    @Autowired private ProductRepository database;
 
     @Test
     public void shouldAddProductToDatabase() {

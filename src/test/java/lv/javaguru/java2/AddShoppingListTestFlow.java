@@ -1,5 +1,8 @@
 package lv.javaguru.java2;
 
+import lv.javaguru.java2.businesslogic.Error;
+import lv.javaguru.java2.businesslogic.createshoppinglist.CreateShoppingListRequest;
+import lv.javaguru.java2.businesslogic.createshoppinglist.CreateShoppingListResponse;
 import lv.javaguru.java2.businesslogic.createshoppinglist.CreateShoppingListService;
 import lv.javaguru.java2.businesslogic.userregistration.UserRegistrationRequest;
 import lv.javaguru.java2.businesslogic.userregistration.UserRegistrationResponse;
@@ -37,6 +40,39 @@ public class AddShoppingListTestFlow {
         assertThat(response.isSuccess(), is(true));
         assertThat(response.getUserId(), is(notNullValue()));
         assertThat(response.getErrors(), is(nullValue()));
+    }
+
+    @Test
+    public void shouldAddOneShoppingList() {
+        UserRegistrationRequest userRegistrationRequest = new UserRegistrationRequest("login", "password");
+        UserRegistrationResponse userRegistrationResponse = userRegistrationService.register(userRegistrationRequest);
+
+        CreateShoppingListRequest createShoppingListRequest = new CreateShoppingListRequest("login", "title");
+        CreateShoppingListResponse createShoppingListResponse = createShoppingListService.create(createShoppingListRequest);
+
+        assertThat(createShoppingListResponse.isSuccess(), is(true));
+        assertThat(createShoppingListResponse.getShoppingListId(), is(notNullValue()));
+        assertThat(createShoppingListResponse.getErrors(), is(nullValue()));
+    }
+
+    @Test
+    public void shouldNotAddDuplicateShoppingList() {
+        UserRegistrationRequest userRegistrationRequest = new UserRegistrationRequest("login", "password");
+        UserRegistrationResponse userRegistrationResponse = userRegistrationService.register(userRegistrationRequest);
+
+        CreateShoppingListRequest createShoppingListRequest = new CreateShoppingListRequest("login", "title");
+        CreateShoppingListResponse createShoppingListResponse = createShoppingListService.create(createShoppingListRequest);
+
+        assertThat(createShoppingListResponse.isSuccess(), is(true));
+
+        createShoppingListResponse = createShoppingListService.create(createShoppingListRequest);
+
+        assertThat(createShoppingListResponse.isSuccess(), is(false));
+        assertThat(createShoppingListResponse.getShoppingListId(), is(nullValue()));
+        assertThat(createShoppingListResponse.getErrors().size(), is(1));
+        Error error = createShoppingListResponse.getErrors().get(0);
+        assertThat(error.getField(), is("title"));
+        assertThat(error.getErrorMessage(), is("Must not be repeated"));
     }
 
 }

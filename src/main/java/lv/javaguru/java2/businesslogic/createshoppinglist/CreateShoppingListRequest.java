@@ -5,6 +5,11 @@ public class CreateShoppingListRequest {
     private String userLogin;
     private String title;
 
+    public CreateShoppingListRequest(String userLogin, String title) {
+        this.userLogin = userLogin;
+        this.title = title;
+    }
+
     public String getUserLogin() {
         return userLogin;
     }

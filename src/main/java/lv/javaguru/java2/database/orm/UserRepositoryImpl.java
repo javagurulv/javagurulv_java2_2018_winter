@@ -4,9 +4,11 @@ import lv.javaguru.java2.database.UserRepository;
 import lv.javaguru.java2.domain.Product;
 import lv.javaguru.java2.domain.ShoppingList;
 import lv.javaguru.java2.domain.User;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 class UserRepositoryImpl extends ORMRepository
@@ -28,6 +30,14 @@ class UserRepositoryImpl extends ORMRepository
         /*return session().createCriteria(ShoppingList.class)
                 .add(Restrictions.eq("user", user))
                 .list();*/
+    }
+
+    @Override
+    public Optional<User> findByLogin(String login) {
+        User user = (User) session().createCriteria(User.class)
+                .add(Restrictions.eq("login", login))
+                .uniqueResult();
+        return Optional.ofNullable(user);
     }
 
 }

@@ -2,7 +2,11 @@ package lv.javaguru.java2.database.orm;
 
 import lv.javaguru.java2.database.ShoppingListRepository;
 import lv.javaguru.java2.domain.ShoppingList;
+import lv.javaguru.java2.domain.User;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 @Component
 class ShoppingListRepositoryImpl extends ORMRepository
@@ -11,6 +15,16 @@ class ShoppingListRepositoryImpl extends ORMRepository
     @Override
     public void save(ShoppingList shoppingList) {
         session().save(shoppingList);
+    }
+
+    @Override
+    public Optional<ShoppingList> findByUserAndTitle(User user,
+                                                     String title) {
+        ShoppingList shoppingList = (ShoppingList) session().createCriteria(ShoppingList.class)
+                .add(Restrictions.eq("user", user))
+                .add(Restrictions.eq("title", title))
+                .uniqueResult();
+        return Optional.ofNullable(shoppingList);
     }
 
 }

@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-abstract class JDBCRepository {
+public abstract class JDBCRepository {
 
     private static final String DB_CONFIG_FILE = "database.properties";
 
@@ -36,10 +36,10 @@ abstract class JDBCRepository {
         try {
             properties.load(JDBCRepository.class.getClassLoader().getResourceAsStream(DB_CONFIG_FILE));
 
-            jdbcUrl = properties.getProperty("jdbcUrl");
+            jdbcUrl = properties.getProperty("jdbc.url");
             driverClass = properties.getProperty("driverClass");
-            userName = properties.getProperty("userName");
-            password = properties.getProperty("password");
+            userName = properties.getProperty("database.user.name");
+            password = properties.getProperty("database.user.password");
         } catch (IOException e){
             System.out.println("Exception while reading JDBC configuration from file = " + DB_CONFIG_FILE);
             e.printStackTrace();

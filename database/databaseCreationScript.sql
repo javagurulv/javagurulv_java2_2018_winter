@@ -46,6 +46,9 @@ FOREIGN KEY (`user_id`) REFERENCES `users`(`id`);
 ALTER TABLE `shopping_lists`
 ADD INDEX `ix_shopping_lists_user_id`(`user_id`);
 
+ALTER TABLE `shopping_lists`
+ADD UNIQUE INDEX `ix_shopping_lists_user_id_title`(`user_id`, `title`);
+
 
 CREATE TABLE IF NOT EXISTS `shopping_list_items` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,

@@ -1,11 +1,11 @@
 package lv.javaguru.java2;
 
-import lv.javaguru.java2.configs.SpringAppConfig;
-import lv.javaguru.java2.views.AddProductView;
-import lv.javaguru.java2.views.ProgramExitView;
-import lv.javaguru.java2.views.RemoveProductView;
-import lv.javaguru.java2.views.ShowProductListView;
-import lv.javaguru.java2.views.View;
+import lv.javaguru.java2.console.configs.SpringConsoleConfig;
+import lv.javaguru.java2.console.views.AddProductView;
+import lv.javaguru.java2.console.views.ProgramExitView;
+import lv.javaguru.java2.console.views.RemoveProductView;
+import lv.javaguru.java2.console.views.ShowProductListView;
+import lv.javaguru.java2.console.views.View;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -23,7 +23,7 @@ public class ShoppingListApplication {
         // 4. Exit
 
         ApplicationContext applicationContext
-                = new AnnotationConfigApplicationContext(SpringAppConfig.class);
+                = new AnnotationConfigApplicationContext(SpringConsoleConfig.class);
 
         Map<Integer, View> actionMap = new HashMap<>();
         actionMap.put(1, applicationContext.getBean(AddProductView.class));

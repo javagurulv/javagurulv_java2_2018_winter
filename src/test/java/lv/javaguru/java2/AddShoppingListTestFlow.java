@@ -1,13 +1,14 @@
 package lv.javaguru.java2;
 
-import lv.javaguru.java2.businesslogic.Error;
-import lv.javaguru.java2.businesslogic.createshoppinglist.CreateShoppingListRequest;
-import lv.javaguru.java2.businesslogic.createshoppinglist.CreateShoppingListResponse;
-import lv.javaguru.java2.businesslogic.createshoppinglist.CreateShoppingListService;
-import lv.javaguru.java2.businesslogic.userregistration.UserRegistrationRequest;
-import lv.javaguru.java2.businesslogic.userregistration.UserRegistrationResponse;
-import lv.javaguru.java2.businesslogic.userregistration.UserRegistrationService;
-import lv.javaguru.java2.configs.SpringAppConfig;
+import lv.javaguru.java2.console.DatabaseCleaner;
+import lv.javaguru.java2.console.businesslogic.Error;
+import lv.javaguru.java2.console.businesslogic.createshoppinglist.CreateShoppingListRequest;
+import lv.javaguru.java2.console.businesslogic.createshoppinglist.CreateShoppingListResponse;
+import lv.javaguru.java2.console.businesslogic.createshoppinglist.CreateShoppingListService;
+import lv.javaguru.java2.console.businesslogic.userregistration.UserRegistrationRequest;
+import lv.javaguru.java2.console.businesslogic.userregistration.UserRegistrationResponse;
+import lv.javaguru.java2.console.businesslogic.userregistration.UserRegistrationService;
+import lv.javaguru.java2.console.configs.SpringConsoleConfig;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,7 +22,7 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { SpringAppConfig.class })
+@ContextConfiguration(classes = { SpringConsoleConfig.class })
 public class AddShoppingListTestFlow {
 
     @Autowired private DatabaseCleaner databaseCleaner;
